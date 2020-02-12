@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Welcome!</title>
+</head>
+<body>
+<p>Enter main dishes below!</p>
+<form action="/add/main/" method="post">
+    {% csrf_token %}
+    {{ main_dish_form }}
+    <input type="submit" value="Add">
+</form>
+
+<form action="/add/side/" method="post">
+    {% csrf_token %}
+    {{ side_dish_form }}
+    <input type="submit" value='Add'>
+</form>
+
+<p>Main dishes:</p>
+<ul>
+    {% for i in main_dishes %}
+        <li>{{ i.main_course }}</li>
+    {% endfor %}
+</ul>
+
+<p>Side dishes:</p>
+<ul>
+    {% for i in side_dishes %}
+        <li>{{ i.side_dish }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
